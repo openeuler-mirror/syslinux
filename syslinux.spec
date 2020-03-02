@@ -2,13 +2,13 @@
 
 Name:           syslinux
 Version:        6.04
-Release:        1
+Release:        2
 License:        GPLv2+
 Summary:        The Syslinux boot loader collection
 URL:            http://syslinux.zytor.com/wiki/index.php/The_Syslinux_Project
 Source0:        https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/Testing/6.04/syslinux-6.04-pre1.tar.xz
 ExclusiveArch:  x86_64
-BuildRequires:  nasm >= 0.98.38-1 perl-interpreter perl-generators netpbm-progs git glibc-devel libuuid-devel mingw64-gcc
+BuildRequires:  nasm >= 0.98.38-1 perl-interpreter perl-generators netpbm-progs git glibc-devel libuuid-devel gcc
 Requires:       syslinux-nonlinux = %{version}-%{release} mtools
 
 # Add install all target in top Makefile.
@@ -163,5 +163,8 @@ fi
 %{_mandir}/man1/{gethostip*,syslinux*,extlinux*,isohybrid*,memdiskfind*,lss16toppm*,ppmtolss16*,syslinux2ansi*}
 
 %changelog
+* Mon Mar 2 2020 songnannan<songnannan2@huawei.com> - 6.04-2
+- change the mingw64-gcc to gcc in buildrequires
+
 * Thu Feb 27 2020 Ling Yang <lingyang2@huawei.com> - 6.04-1
 - Package Init
