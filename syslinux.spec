@@ -2,7 +2,7 @@
 
 Name:           syslinux
 Version:        6.04
-Release:        2
+Release:        3
 License:        GPLv2+
 Summary:        The Syslinux boot loader collection
 URL:            http://syslinux.zytor.com/wiki/index.php/The_Syslinux_Project
@@ -161,8 +161,12 @@ fi
 %files help
 %doc doc/* sample
 %{_mandir}/man1/{gethostip*,syslinux*,extlinux*,isohybrid*,memdiskfind*,lss16toppm*,ppmtolss16*,syslinux2ansi*}
+%{_datadir}/sample/sample.msg
 
 %changelog
+* Mon Mar 2 2020 songnannan<songnannan2@huawei.com> - 6.04-3
+- add sample.msg file to help package
+
 * Mon Mar 2 2020 songnannan<songnannan2@huawei.com> - 6.04-2
 - change the mingw64-gcc to gcc in buildrequires
 
