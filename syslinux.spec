@@ -2,7 +2,7 @@
 
 Name:           syslinux
 Version:        6.04
-Release:        4
+Release:        5
 License:        GPLv2+
 Summary:        The Syslinux boot loader collection
 URL:            http://syslinux.zytor.com/wiki/index.php/The_Syslinux_Project
@@ -122,7 +122,7 @@ elif [ -f /boot/extlinux.conf ]; then
 fi
 
 %files
-%doc COPYING NEWS README*
+%doc COPYING NEWS README* 
 %{_bindir}/{gethostip,isohybrid,memdiskfind,syslinux}
 %dir %{_datadir}/syslinux/dosutil
 %{_datadir}/syslinux/dosutil/*
@@ -159,10 +159,14 @@ fi
 %{_datadir}/syslinux/efi64
 
 %files help
-%doc doc/* sample sample/sample.msg
+%doc doc/* sample 
 %{_mandir}/man1/{gethostip*,syslinux*,extlinux*,isohybrid*,memdiskfind*,lss16toppm*,ppmtolss16*,syslinux2ansi*}
+%{_datadir}/doc/syslinux/sample/sample.msg
 
 %changelog
+* Mon Mar 2 2020 songnannan<songnannan2@huawei.com> -6.04-5
+- change the path of file
+
 * Mon Mar 2 2020 songnannan<songnannan2@huawei.com> - 6.04-4 
 - change files
 
