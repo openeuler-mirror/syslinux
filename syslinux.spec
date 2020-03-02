@@ -2,7 +2,7 @@
 
 Name:           syslinux
 Version:        6.04
-Release:        3
+Release:        4
 License:        GPLv2+
 Summary:        The Syslinux boot loader collection
 URL:            http://syslinux.zytor.com/wiki/index.php/The_Syslinux_Project
@@ -159,11 +159,13 @@ fi
 %{_datadir}/syslinux/efi64
 
 %files help
-%doc doc/* sample
+%doc doc/* sample sample/sample.msg
 %{_mandir}/man1/{gethostip*,syslinux*,extlinux*,isohybrid*,memdiskfind*,lss16toppm*,ppmtolss16*,syslinux2ansi*}
-%{_datadir}/sample/sample.msg
 
 %changelog
+* Mon Mar 2 2020 songnannan<songnannan2@huawei.com> - 6.04-4 
+- change files
+
 * Mon Mar 2 2020 songnannan<songnannan2@huawei.com> - 6.04-3
 - add sample.msg file to help package
 
