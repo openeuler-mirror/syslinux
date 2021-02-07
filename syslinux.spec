@@ -2,7 +2,7 @@
 
 Name:           syslinux
 Version:        6.04
-Release:        5
+Release:        6
 License:        GPLv2+
 Summary:        The Syslinux boot loader collection
 URL:            http://syslinux.zytor.com/wiki/index.php/The_Syslinux_Project
@@ -22,6 +22,8 @@ Patch0002:      0002-ext4-64bit-feature.patch
 # Add include sysmacros.h to fixed building error.
 # Frome: https://raw.githubusercontent.com/JeffreyALaw/Fedora-syslinux/master/0003-include-sysmacros-h.patch
 Patch0003:      0003-include-sysmacros-h.patch
+
+Patch0004:      backport-replace-builtin-strlen-that-appears-to-get-optimized.patch
 
 %description
 The Syslinux Project covers lightweight bootloaders for MS-DOS FAT filesystems (SYSLINUX),
@@ -164,6 +166,9 @@ fi
 %{_datadir}/doc/syslinux/sample/sample.msg
 
 %changelog
+* Sun Feb 7 2021 jinzhimin<jinzhimin2@huawei.com> - 6.04-6
+- add patch to replace builtin strlen
+
 * Mon Mar 2 2020 songnannan<songnannan2@huawei.com> -6.04-5
 - change the path of file
 
