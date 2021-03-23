@@ -2,7 +2,7 @@
 
 Name:           syslinux
 Version:        6.04
-Release:        6
+Release:        7
 License:        GPLv2+
 Summary:        The Syslinux boot loader collection
 URL:            http://syslinux.zytor.com/wiki/index.php/The_Syslinux_Project
@@ -24,6 +24,7 @@ Patch0002:      0002-ext4-64bit-feature.patch
 Patch0003:      0003-include-sysmacros-h.patch
 
 Patch0004:      backport-replace-builtin-strlen-that-appears-to-get-optimized.patch
+Patch0005:      backport-add-RPMOPTFLAGS-to-CFLAGS-for-some-stuff.patch
 
 %description
 The Syslinux Project covers lightweight bootloaders for MS-DOS FAT filesystems (SYSLINUX),
@@ -96,8 +97,8 @@ Help document for the syslinux package.
 %autosetup -n syslinux-6.04-pre1 -p1
 
 %build
-make bios clean all
-make efi64 clean all
+make RPMCFLAGS='%{optflags}' RPMLDFLAGS='%{build_ldflags}' bios clean all
+make RPMCFLAGS='%{optflags}' RPMLDFLAGS='%{build_ldflags}' efi64 clean all
 
 %install
 rm -rf %{buildroot}
@@ -166,6 +167,9 @@ fi
 %{_datadir}/doc/syslinux/sample/sample.msg
 
 %changelog
+* Sat Mar 20 2021 hanhui<hanhui15@huawei.com> - 6.04-7
+- slove the problem of security scanning of options
+
 * Sun Feb 7 2021 jinzhimin<jinzhimin2@huawei.com> - 6.04-6
 - add patch to replace builtin strlen
 
