@@ -2,7 +2,7 @@
 
 Name:           syslinux
 Version:        6.04
-Release:        7
+Release:        8
 License:        GPLv2+
 Summary:        The Syslinux boot loader collection
 URL:            http://syslinux.zytor.com/wiki/index.php/The_Syslinux_Project
@@ -86,13 +86,6 @@ Summary:        Modules for 64-bit UEFI systems
 %description    efi64
 Modules for 64-bit UEFI systems.
 
-%package        help
-Summary:        Help document for the syslinux
-Buildarch:      noarch
-
-%description    help
-Help document for the syslinux package.
-
 %prep
 %autosetup -n syslinux-6.04-pre1 -p1
 
@@ -125,7 +118,10 @@ elif [ -f /boot/extlinux.conf ]; then
 fi
 
 %files
-%doc COPYING NEWS README* 
+%doc COPYING NEWS README*
+%doc doc/* sample
+%{_mandir}/man1/{gethostip*,syslinux*,extlinux*,isohybrid*,memdiskfind*}
+%{_datadir}/doc/syslinux/sample/sample.msg 
 %{_bindir}/{gethostip,isohybrid,memdiskfind,syslinux}
 %dir %{_datadir}/syslinux/dosutil
 %{_datadir}/syslinux/dosutil/*
@@ -136,6 +132,7 @@ fi
 
 %files perl
 %doc COPYING
+%{_mandir}/man1/{lss16toppm*,ppmtolss16*,syslinux2ansi*}
 %{_bindir}/{keytab-lilo,lss16toppm,md5pass,mkdiskimage,ppmtolss16,pxelinux-options,sha1pass,syslinux2ansi,isohybrid.pl}
 
 %files devel
@@ -161,12 +158,10 @@ fi
 %dir %{_datadir}/syslinux/efi64
 %{_datadir}/syslinux/efi64
 
-%files help
-%doc doc/* sample 
-%{_mandir}/man1/{gethostip*,syslinux*,extlinux*,isohybrid*,memdiskfind*,lss16toppm*,ppmtolss16*,syslinux2ansi*}
-%{_datadir}/doc/syslinux/sample/sample.msg
-
 %changelog
+* Sat Jul 16 2021 hanhui<hanhui15@huawei.com> - 6.04-8
+- solves the problem of compiling stuck
+
 * Sat Mar 20 2021 hanhui<hanhui15@huawei.com> - 6.04-7
 - slove the problem of security scanning of options
 
