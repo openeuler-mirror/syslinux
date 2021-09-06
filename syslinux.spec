@@ -2,13 +2,13 @@
 
 Name:           syslinux
 Version:        6.04
-Release:        8
+Release:        9
 License:        GPLv2+
 Summary:        The Syslinux boot loader collection
 URL:            http://syslinux.zytor.com/wiki/index.php/The_Syslinux_Project
 Source0:        https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/Testing/6.04/syslinux-6.04-pre1.tar.xz
 ExclusiveArch:  x86_64
-BuildRequires:  nasm >= 0.98.38-1 perl-interpreter perl-generators netpbm-progs git glibc-devel libuuid-devel gcc
+BuildRequires:  nasm >= 0.98.38-1 perl-interpreter libuuid-devel gcc
 Requires:       syslinux-nonlinux = %{version}-%{release} mtools
 
 # Add install all target in top Makefile.
@@ -159,6 +159,9 @@ fi
 %{_datadir}/syslinux/efi64
 
 %changelog
+* Mon Sep 6 2021 yangcheng<yangcheng87@huawei.com> - 6.04-9  
+- Streamline the build dependency and fix the compiling stuck
+
 * Sat Jul 16 2021 hanhui<hanhui15@huawei.com> - 6.04-8
 - solves the problem of compiling stuck
 
