@@ -2,7 +2,7 @@
 
 Name:           syslinux
 Version:        6.04
-Release:        9
+Release:        10
 License:        GPLv2+
 Summary:        The Syslinux boot loader collection
 URL:            http://syslinux.zytor.com/wiki/index.php/The_Syslinux_Project
@@ -25,6 +25,7 @@ Patch0003:      0003-include-sysmacros-h.patch
 
 Patch0004:      backport-replace-builtin-strlen-that-appears-to-get-optimized.patch
 Patch0005:      backport-add-RPMOPTFLAGS-to-CFLAGS-for-some-stuff.patch
+Patch0006:      backport-tweak-for-gcc-10.patch
 
 %description
 The Syslinux Project covers lightweight bootloaders for MS-DOS FAT filesystems (SYSLINUX),
@@ -159,6 +160,9 @@ fi
 %{_datadir}/syslinux/efi64
 
 %changelog
+* Mon Sep 6 2021 yangcheng<yangcheng87@huawei.com> - 6.04-10
+- fix build failed due to gcc-10
+
 * Mon Sep 6 2021 yangcheng<yangcheng87@huawei.com> - 6.04-9  
 - Streamline the build dependency and fix the compiling stuck
 
