@@ -2,7 +2,7 @@
 
 Name:           syslinux
 Version:        6.04
-Release:        11
+Release:        12
 License:        GPLv2+
 Summary:        The Syslinux boot loader collection
 URL:            http://syslinux.zytor.com/wiki/index.php/The_Syslinux_Project
@@ -121,7 +121,7 @@ fi
 %files
 %doc COPYING NEWS README*
 %doc doc/* sample
-%{_mandir}/man1/{gethostip*,syslinux*,extlinux*,isohybrid*,memdiskfind*}
+%{_mandir}/man1/{gethostip*,extlinux*,isohybrid*,memdiskfind*,syslinux.1.gz}
 %{_datadir}/doc/syslinux/sample/sample.msg 
 %{_bindir}/{gethostip,isohybrid,memdiskfind,syslinux}
 %dir %{_datadir}/syslinux/dosutil
@@ -160,6 +160,9 @@ fi
 %{_datadir}/syslinux/efi64
 
 %changelog
+* Mon Apr 18 2022 hanhui<hanhui15@h-partners.com> - 6.04-12
+- slove duplicate package files
+
 * Mon Aug 23 2021 yangcheng<yangcheng87@huawei.com> - 6.04-11
 - Increase perl and gcc dependencies in buildrequires
 
