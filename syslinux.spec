@@ -2,7 +2,7 @@
 
 Name:           syslinux
 Version:        6.04
-Release:        12
+Release:        13
 License:        GPLv2+
 Summary:        The Syslinux boot loader collection
 URL:            http://syslinux.zytor.com/wiki/index.php/The_Syslinux_Project
@@ -121,7 +121,7 @@ fi
 %files
 %doc COPYING NEWS README*
 %doc doc/* sample
-%{_mandir}/man1/{gethostip*,extlinux*,isohybrid*,memdiskfind*,syslinux.1.gz}
+%{_mandir}/man1/{gethostip*,isohybrid*,memdiskfind*,syslinux.1.gz}
 %{_datadir}/doc/syslinux/sample/sample.msg 
 %{_bindir}/{gethostip,isohybrid,memdiskfind,syslinux}
 %dir %{_datadir}/syslinux/dosutil
@@ -142,6 +142,7 @@ fi
 %{_datadir}/syslinux/com32/*
 
 %files extlinux
+%{_mandir}/man1/extlinux*
 /sbin/extlinux
 %config /etc/extlinux.conf
 
@@ -160,6 +161,9 @@ fi
 %{_datadir}/syslinux/efi64
 
 %changelog
+* Tue May 24 2022 hanhui<hanhui15@h-partners.com> - 6.04-13
+- package the extlinux* file into the syslinux-extlinux.rpm
+
 * Mon Apr 18 2022 hanhui<hanhui15@h-partners.com> - 6.04-12
 - slove duplicate package files
 
